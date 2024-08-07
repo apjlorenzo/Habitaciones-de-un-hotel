@@ -1,7 +1,6 @@
-﻿
-using Laboratorio_02;
+﻿using Laboratorio_02;
 
-List <Habitación> habitacion = new List<Habitación> ();
+List <Habitación> listHabitacion = new List<Habitación> ();
 bool menucondition = true;
 do
 {
@@ -19,6 +18,7 @@ do
         {
             case 1:
                 Console.Clear();
+                
                 Console.ReadKey();
                 break;
             case 2:
