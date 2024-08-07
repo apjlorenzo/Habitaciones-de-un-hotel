@@ -1,6 +1,6 @@
 ﻿using Laboratorio_02;
 
-List <Habitación> listHabitacion = new List<Habitación> ();
+Habitación listHabitación = new Habitación(0,0,false,null); 
 bool menucondition = true;
 do
 {

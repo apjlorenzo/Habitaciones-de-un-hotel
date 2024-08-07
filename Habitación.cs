@@ -8,7 +8,7 @@ namespace Laboratorio_02
 {
     internal class Habitación
     {
-        public List<Habitación> listHabitacion;
+        public List<Habitación> listHabitacion = new List<Habitación>();
         int numero = 5020;
         bool disponibilidad = true;
         //Atributos
