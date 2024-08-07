@@ -1,9 +1,10 @@
 ﻿using Laboratorio_02;
 
-Habitación listHabitación = new Habitación(0,0,false,null); 
+HabitacionSimple listHabitación = new HabitacionSimple(0,0,false,null,0); 
 bool menucondition = true;
 do
 {
+    Console.Clear();
     Console.WriteLine("______MENU______");
     Console.WriteLine("1.Agregar habitaciones");
     Console.WriteLine("2.Eliminar habitación");
@@ -18,7 +19,7 @@ do
         {
             case 1:
                 Console.Clear();
-                
+                listHabitación.AgregarHabitacion();
                 Console.ReadKey();
                 break;
             case 2:
@@ -27,6 +28,7 @@ do
                 break;
             case 3:
                 Console.Clear();
+                listHabitación.MostrarInformacion();
                 Console.ReadKey();
                 break;
             case 4:
