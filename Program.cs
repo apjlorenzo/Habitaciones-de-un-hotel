@@ -53,6 +53,30 @@ do
                 while (menucondition2);
                 break;
             case 2:
+                Console.Clear();
+                Console.WriteLine("Ingrese el tipo de habitacion a eliminar: (1.Simple 2. Doble 3. Suite o 4. Deluxe)");
+                int respuesta = int.Parse(Console.ReadLine());
+                if (respuesta == 1)
+                {
+                    listHabitacionSimple.EliminarHabitacion();
+                }
+                else if (respuesta == 2)
+                {
+                    listHabitacionDoble.EliminarHabitacion();
+                }
+                else if (respuesta == 3)
+                {
+                    listSuites.EliminarHabitacion();
+                }
+                else if (respuesta == 4)
+                {
+                    listDeluxe.EliminarHabitacion();
+                }
+                else
+                {
+                    Console.WriteLine("No es una opción válida.");
+                }
+                Console.ReadKey();
                 break;
             case 3:
                 Console.Clear();

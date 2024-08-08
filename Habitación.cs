@@ -8,6 +8,7 @@ namespace Laboratorio_02
 {
     public class Habitación
     {
+        public List<Habitación> habitacion = new List<Habitación>();
         //Atributos
         public int Numero { get; set; }
         public double PrecioPorNoche { get; set; }
@@ -20,6 +21,22 @@ namespace Laboratorio_02
             PrecioPorNoche = precioPorNoche;
             Disponibilidad = disponibilidad;
             ClienteAsignado = clienteAsignado;
+        }
+        public void EliminarHabitacion()
+        {
+            Console.Write("Ingrese el numero de la habitacion que quiere eliminar: ");
+            int numero = int.Parse(Console.ReadLine());
+            Habitación encontrar = habitacion.Find(p => p.Numero == numero);
+            if (encontrar != null)
+            {
+                habitacion.Remove(encontrar);
+                Console.WriteLine("Se ha eliminado correctamente.");
+                Console.WriteLine("\nPresione cualquier tecla para continuar: ");
+            }
+            else
+            {
+                Console.WriteLine("No hay ninguna habitacion con ese numero.");
+            }
         }
     }
 }
