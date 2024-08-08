@@ -57,8 +57,6 @@ namespace Laboratorio_02
                 Console.WriteLine($"Cliente de la habitación: {habitacion.ClienteAsignado}");
                 Console.WriteLine($"Vista al mar: {habitacion.VistaAlMar}");
             }
-            Console.WriteLine("\nHabitaciones registradas correctamente.");
-            Console.WriteLine("Presione cualquier tecla para continuar: ");
         }
     }
 }

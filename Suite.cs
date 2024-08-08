@@ -57,8 +57,6 @@ namespace Laboratorio_02
                 Console.WriteLine($"Número de habitación: {habitacion.Disponibilidad}");
                 Console.WriteLine($"Número de habitación: {habitacion.ClienteAsignado}");
             }
-            Console.WriteLine("\nHabitaciones registradas correctamente.");
-            Console.WriteLine("Presione cualquier tecla para continuar: ");
         }
     }
 

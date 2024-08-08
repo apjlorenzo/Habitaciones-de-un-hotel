@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Laboratorio_02
 {
-    public class HabitacionSimple : Habitación
+    internal class HabitacionDeluxe : Habitación
     {
-        public List<HabitacionSimple> listHabitacionSimple = new List<HabitacionSimple>();
-        int numero = 5020;
+        public List<HabitacionDeluxe> listDeluxe = new List<HabitacionDeluxe>();
+        int numero = 9020;
         //Atributos
-        public int NumeroDeCamas { get; set; }
+        public string ServiciosExtras { get; set; }
         //MétodoConstructos
-        public HabitacionSimple(int numero, double precioPorNoche, string disponibilidad, string clienteAsignado, int numeroDeCamas) : base(numero, precioPorNoche, disponibilidad, clienteAsignado)
+        public HabitacionDeluxe(int numero, double precioPorNoche, string disponibilidad, string clienteAsignado, string serviciosExtras) : base(numero, precioPorNoche, disponibilidad, clienteAsignado)
         {
-            NumeroDeCamas = numeroDeCamas;
+            ServiciosExtras = serviciosExtras;
         }
         public void AgregarHabitacion()
         {
@@ -27,10 +27,10 @@ namespace Laboratorio_02
                 numero += 1;
                 Console.Write("Ingrese el precio por noche de la habitación: Q");
                 double precioPorNoche = double.Parse(Console.ReadLine());
-                Console.Write("Ingrese el número de camas: ");
-                int numeroDeCamas = int.Parse(Console.ReadLine());
+                Console.Write("Ingrese los servicios extras: ");
+                string serviciosExtras = Console.ReadLine();
 
-                listHabitacionSimple.Add(new HabitacionSimple(numero, precioPorNoche, "Disponible", null, numeroDeCamas));
+                listDeluxe.Add(new HabitacionDeluxe(numero, precioPorNoche, "Disponible", null, serviciosExtras));
             }
             Console.Clear();
             Console.WriteLine("Habitaciones registradas correctamente.");
@@ -41,14 +41,15 @@ namespace Laboratorio_02
         {
             Console.Clear();
             Console.WriteLine("Información de las habitaciones: ");
-            foreach (HabitacionSimple habitacion in listHabitacionSimple)
+            foreach (HabitacionDeluxe habitacion in listDeluxe)
             {
                 Console.WriteLine($"Número de habitación: {habitacion.Numero}");
                 Console.WriteLine($"Precio de habitación: {habitacion.PrecioPorNoche}");
                 Console.WriteLine($"Disponibilidad de habitación: {habitacion.Disponibilidad}");
                 Console.WriteLine($"Cliente asignado: {habitacion.ClienteAsignado}");
-                Console.WriteLine($"Número de camas: {habitacion.NumeroDeCamas}");
+                Console.WriteLine($"Número de camas: {habitacion.ServiciosExtras}");
             }
+
         }
     }
 }

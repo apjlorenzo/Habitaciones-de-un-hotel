@@ -1,6 +1,8 @@
 ﻿using Laboratorio_02;
 HabitacionSimple listHabitacionSimple = new HabitacionSimple(0,0,null,null,0);
 HabitacionDoble listHabitacionDoble = new HabitacionDoble(0, 0, null, null, null);
+Suite listSuites = new Suite(0,0,null,null,0,null);
+HabitacionDeluxe listDeluxe = new HabitacionDeluxe(0,0,null,null,null);
 bool menucondition = true;
 do
 {
@@ -38,8 +40,10 @@ do
                             listHabitacionDoble.AgregarHabitacion();
                             break;
                         case 3:
+                            listSuites.AgregarHabitacion();
                             break;
                         case 4:
+                            listSuites.AgregarHabitacion();
                             break;
                         case 5:
                             menucondition2 = false;
@@ -51,10 +55,18 @@ do
             case 2:
                 break;
             case 3:
+                Console.Clear();
                 Console.WriteLine("Habitaciones simples:");
                 listHabitacionSimple.MostrarInformacion();
                 Console.WriteLine("\nHabitaciones dobles:");
                 listHabitacionDoble.MostrarInformacion();
+                Console.WriteLine("\nSuites:");
+                listSuites.MostrarInformacion();
+                Console.WriteLine("\nHabitaciones deluxe:");
+                listDeluxe.MostrarInformacion();
+                Console.WriteLine("Habitaciones registradas correctamente.");
+                Console.WriteLine("Presione cualquier tecla para continuar: ");
+                Console.ReadKey();
                 break;
             case 4:
                 break;
