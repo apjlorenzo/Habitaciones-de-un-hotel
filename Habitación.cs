@@ -38,5 +38,25 @@ namespace Laboratorio_02
                 Console.WriteLine("No hay ninguna habitacion con ese numero.");
             }
         }
+        public void AsignarCliente()
+        {
+            Console.Write("Ingrese el nombre del cliente que quiere asignar: ");
+            string cliente = Console.ReadLine();
+            habitacion.Add(new Habitación(0,0,"No disponible", cliente));
+        }
+        public void LiberarHabitacion()
+        {
+            Console.Write("Ingrese el numero de habitacion que quiere liberar: ");
+            int numero = int.Parse(Console.ReadLine());
+            Habitación encontrar = habitacion.Find(p=>p.Numero == numero);
+            if (encontrar != null)
+            {
+                habitacion.Add(new Habitación(0,0,"Disponible",null));
+            }
+            else
+            {
+                Console.WriteLine("No hay ninguna habitacion con ese numero.");
+            }
+        }
     }
 }

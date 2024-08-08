@@ -93,8 +93,56 @@ do
                 Console.ReadKey();
                 break;
             case 4:
+                Console.Clear();
+                Console.WriteLine("Ingrese el tipo de habitacion a asignar el cliente: (1.Simple 2. Doble 3. Suite o 4. Deluxe)");
+                int respuesta2 = int.Parse(Console.ReadLine());
+                if (respuesta2 == 1)
+                {
+                    listHabitacionSimple.AsignarCliente();
+                }
+                else if (respuesta2 == 2)
+                {
+                    listHabitacionDoble.AsignarCliente();
+                }
+                else if (respuesta2 == 3)
+                {
+                    listSuites.AsignarCliente();
+                }
+                else if (respuesta2 == 4)
+                {
+                    listDeluxe.AsignarCliente();
+                }
+                else
+                {
+                    Console.WriteLine("No es una opción válida.");
+                }
+                Console.ReadKey();
                 break;
             case 5:
+                Console.Clear();
+                Console.WriteLine("Ingrese el tipo de habitacion a asignar el cliente: (1.Simple 2. Doble 3. Suite o 4. Deluxe)");
+                int respuesta3 = int.Parse(Console.ReadLine());
+                if (respuesta3 == 1)
+                {
+                    listHabitacionSimple.LiberarHabitacion();
+                }
+                else if (respuesta3 == 2)
+                {
+                    listHabitacionDoble.LiberarHabitacion();
+                }
+                else if (respuesta3 == 3)
+                {
+                    listSuites.LiberarHabitacion();
+                }
+                else if (respuesta3 == 4)
+                {
+                    listDeluxe.LiberarHabitacion();
+                }
+                else
+                {
+                    Console.WriteLine("No es una opción válida.");
+                }
+                Console.ReadKey();
                 break;
             case 6:
                 menucondition = false;
