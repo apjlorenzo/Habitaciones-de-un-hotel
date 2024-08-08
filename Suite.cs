@@ -19,6 +19,7 @@ namespace Laboratorio_02
         }
         public void AgregarHabitacion()
         {
+            Console.Clear();
             Console.Write("Ingrese la cantidad de habitaciones que quiere registrar: ");
             int cantidad = int.Parse(Console.ReadLine());
             for (int i = 0; i < cantidad; i++)
@@ -28,7 +29,7 @@ namespace Laboratorio_02
                 double precioPorNoche = double.Parse(Console.ReadLine());
                 Console.Write("Ingrese el numero de habitaciones:  ");
                 int numeroDeHabitaciones = int.Parse(Console.ReadLine());
-                Console.Write("¿La habitación tiene vista al mar? SI/NO");
+                Console.Write("¿La habitación tiene vista al mar? SI/NO ");
                 string jacuzzi = Console.ReadLine().ToUpper();
                 if (jacuzzi == "SI")
                 {
@@ -46,16 +47,72 @@ namespace Laboratorio_02
             Console.Clear();
             Console.WriteLine("Habitaciones registradas correctamente.");
             Console.WriteLine("Presione cualquier tecla para continuar: ");
+            Console.ReadKey();
         }
         public void MostrarInformacion()
         {
+            Console.WriteLine("\nSuites.");
             Console.WriteLine("Información de las habitaciones: ");
             foreach (Suite habitacion in listSuites)
             {
-                Console.WriteLine($"Número de habitación: {habitacion.Numero}");
-                Console.WriteLine($"Número de habitación: {habitacion.PrecioPorNoche}");
-                Console.WriteLine($"Número de habitación: {habitacion.Disponibilidad}");
-                Console.WriteLine($"Número de habitación: {habitacion.ClienteAsignado}");
+                Console.WriteLine($"\nNúmero de habitación: {habitacion.Numero}");
+                Console.WriteLine($"Precio de habitación: {habitacion.PrecioPorNoche}");
+                Console.WriteLine($"Disponibilidad de habitación: {habitacion.Disponibilidad}");
+                Console.WriteLine($"Cliente de habitación: {habitacion.ClienteAsignado}");
+            }
+        }
+        public new void EliminarHabitacion()
+        {
+            Console.Clear();
+            Console.Write("Ingrese el numero de la habitacion que quiere eliminar: ");
+            int numero = int.Parse(Console.ReadLine());
+            Suite encontrar = listSuites.Find(p => p.Numero == numero);
+            if (encontrar != null)
+            {
+                listSuites.Remove(encontrar);
+                Console.WriteLine("Se ha eliminado correctamente.");
+                Console.WriteLine("\nPresione cualquier tecla para continuar: ");
+            }
+            else
+            {
+                Console.WriteLine("No hay ninguna habitacion con ese numero.");
+            }
+            Console.ReadKey();
+        }
+        public void AsignarCliente()
+        {
+            Console.Write("Ingrese el numero de la habitacion: ");
+            int numero = int.Parse(Console.ReadLine());
+            Suite encontrar = listSuites.Find(p => p.Numero == numero);
+            if (encontrar != null)
+            {
+                Console.Write("Ingrese el nombre del cliente que quiere asignar: ");
+                string cliente = Console.ReadLine();
+                encontrar.ClienteAsignado = cliente;
+                encontrar.Disponibilidad = "No disponible";
+                Console.WriteLine("Cliente asignado correctamente a la habitación.");
+                Console.WriteLine("Presione cualquier tecla para continuar: ");
+            }
+            else
+            {
+                Console.WriteLine("No hay ninguna habitacion con ese numero");
+            }
+        }
+        public void LiberarHabitacion()
+        {
+            Console.Write("Ingrese el numero de habitacion que quiere liberar: ");
+            int numero = int.Parse(Console.ReadLine());
+            Suite encontrar = listSuites.Find(p => p.Numero == numero);
+            if (encontrar != null)
+            {
+                encontrar.Disponibilidad = "Disponible";
+                encontrar.ClienteAsignado = null;
+                Console.WriteLine("Habitación liberada correctamente.");
+                Console.WriteLine("\nPresione cualquier tecla para continuar: ");
+            }
+            else
+            {
+                Console.WriteLine("No hay ninguna habitacion con ese numero.");
             }
         }
     }

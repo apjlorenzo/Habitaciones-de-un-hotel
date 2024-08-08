@@ -9,7 +9,7 @@ namespace Laboratorio_02
     internal class HabitacionDeluxe : Habitación
     {
         public List<HabitacionDeluxe> listDeluxe = new List<HabitacionDeluxe>();
-        int numero = 9020;
+        int numero = 10020;
         //Atributos
         public string ServiciosExtras { get; set; }
         //MétodoConstructos
@@ -39,17 +39,71 @@ namespace Laboratorio_02
         }
         public void MostrarInformacion()
         {
-            Console.Clear();
+            Console.WriteLine("\nHabitaciones deluxe.");
             Console.WriteLine("Información de las habitaciones: ");
             foreach (HabitacionDeluxe habitacion in listDeluxe)
             {
-                Console.WriteLine($"Número de habitación: {habitacion.Numero}");
+                Console.WriteLine($"\nNúmero de habitación: {habitacion.Numero}");
                 Console.WriteLine($"Precio de habitación: {habitacion.PrecioPorNoche}");
                 Console.WriteLine($"Disponibilidad de habitación: {habitacion.Disponibilidad}");
                 Console.WriteLine($"Cliente asignado: {habitacion.ClienteAsignado}");
                 Console.WriteLine($"Número de camas: {habitacion.ServiciosExtras}");
             }
 
+        }
+        public new void EliminarHabitacion()
+        {
+            Console.Clear();
+            Console.Write("Ingrese el numero de la habitacion que quiere eliminar: ");
+            int numero = int.Parse(Console.ReadLine());
+            HabitacionDeluxe encontrar = listDeluxe.Find(p => p.Numero == numero);
+            if (encontrar != null)
+            {
+                listDeluxe.Remove(encontrar);
+                Console.WriteLine("Se ha eliminado correctamente.");
+                Console.WriteLine("\nPresione cualquier tecla para continuar: ");
+            }
+            else
+            {
+                Console.WriteLine("No hay ninguna habitacion con ese numero.");
+            }
+            Console.ReadKey();
+        }
+        public void AsignarCliente()
+        {
+            Console.Write("Ingrese el numero de la habitacion: ");
+            int numero = int.Parse(Console.ReadLine());
+            HabitacionDeluxe encontrar = listDeluxe.Find(p => p.Numero == numero);
+            if (encontrar != null)
+            {
+                Console.Write("Ingrese el nombre del cliente que quiere asignar: ");
+                string cliente = Console.ReadLine();
+                encontrar.ClienteAsignado = cliente;
+                encontrar.Disponibilidad = "No disponible";
+                Console.WriteLine("Cliente asignado correctamente a la habitación.");
+                Console.WriteLine("Presione cualquier tecla para continuar: ");
+            }
+            else
+            {
+                Console.WriteLine("No hay ninguna habitacion con ese numero");
+            }
+        }
+        public void LiberarHabitacion()
+        {
+            Console.Write("Ingrese el numero de habitacion que quiere liberar: ");
+            int numero = int.Parse(Console.ReadLine());
+            HabitacionDeluxe encontrar = listDeluxe.Find(p => p.Numero == numero);
+            if (encontrar != null)
+            {
+                encontrar.Disponibilidad = "Disponible";
+                encontrar.ClienteAsignado = null;
+                Console.WriteLine("Habitación liberada correctamente.");
+                Console.WriteLine("\nPresione cualquier tecla para continuar: ");
+            }
+            else
+            {
+                Console.WriteLine("No hay ninguna habitacion con ese numero.");
+            }
         }
     }
 }

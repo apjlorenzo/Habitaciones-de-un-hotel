@@ -14,9 +14,10 @@ do
     Console.WriteLine("4.Asignar habitaciones");
     Console.WriteLine("5.Liberar habitaciones");
     Console.WriteLine("6.Salir del programa");
-    int option = int.Parse(Console.ReadLine());
+    Console.Write("Escriba una opción: ");
     try
     {
+        int option = int.Parse(Console.ReadLine());
         switch (option)
         {
             case 1:
@@ -30,24 +31,33 @@ do
                     Console.WriteLine("3.Suite");
                     Console.WriteLine("4.Habitación Deluxe");
                     Console.WriteLine("5.Regresar");
-                    int option2 = int.Parse(Console.ReadLine());
-                    switch (option2)
+                    Console.Write("Escriba una opción: ");
+                    try
                     {
-                        case 1:
-                            listHabitacionSimple.AgregarHabitacion();
-                            break;
-                        case 2:
-                            listHabitacionDoble.AgregarHabitacion();
-                            break;
-                        case 3:
-                            listSuites.AgregarHabitacion();
-                            break;
-                        case 4:
-                            listSuites.AgregarHabitacion();
-                            break;
-                        case 5:
-                            menucondition2 = false;
-                            break;
+                        int option2 = int.Parse(Console.ReadLine());
+                        switch (option2)
+                        {
+                            case 1:
+                                listHabitacionSimple.AgregarHabitacion();
+                                break;
+                            case 2:
+                                listHabitacionDoble.AgregarHabitacion();
+                                break;
+                            case 3:
+                                listSuites.AgregarHabitacion();
+                                break;
+                            case 4:
+                                listDeluxe.AgregarHabitacion();
+                                break;
+                            case 5:
+                                menucondition2 = false;
+                                break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        Console.ReadKey();
                     }
                 }
                 while (menucondition2);
@@ -76,20 +86,13 @@ do
                 {
                     Console.WriteLine("No es una opción válida.");
                 }
-                Console.ReadKey();
                 break;
             case 3:
                 Console.Clear();
-                Console.WriteLine("Habitaciones simples:");
                 listHabitacionSimple.MostrarInformacion();
-                Console.WriteLine("\nHabitaciones dobles:");
                 listHabitacionDoble.MostrarInformacion();
-                Console.WriteLine("\nSuites:");
                 listSuites.MostrarInformacion();
-                Console.WriteLine("\nHabitaciones deluxe:");
                 listDeluxe.MostrarInformacion();
-                Console.WriteLine("Habitaciones registradas correctamente.");
-                Console.WriteLine("Presione cualquier tecla para continuar: ");
                 Console.ReadKey();
                 break;
             case 4:
@@ -148,10 +151,12 @@ do
                 menucondition = false;
                 break;
         }
+
     }
     catch (Exception ex)
     {
         Console.WriteLine(ex.Message);
+        Console.ReadKey();
     }
 }
 while (menucondition);
