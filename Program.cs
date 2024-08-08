@@ -1,6 +1,6 @@
 ﻿using Laboratorio_02;
-
-HabitacionSimple listHabitación = new HabitacionSimple(0,0,false,null,0); 
+HabitacionSimple listHabitacionSimple = new HabitacionSimple(0,0,null,null,0);
+HabitacionDoble listHabitacionDoble = new HabitacionDoble(0, 0, null, null, null);
 bool menucondition = true;
 do
 {
@@ -18,9 +18,10 @@ do
         switch (option)
         {
             case 1:
-                Console.Clear();
+                bool menucondition2 = true;
                 do
                 {
+                    Console.Clear();
                     Console.WriteLine("______AGREGAR HABITACIONES______");
                     Console.WriteLine("1.Habitación simple");
                     Console.WriteLine("2.Habitación Doble");
@@ -31,36 +32,33 @@ do
                     switch (option2)
                     {
                         case 1:
+                            listHabitacionSimple.AgregarHabitacion();
                             break;
                         case 2:
+                            listHabitacionDoble.AgregarHabitacion();
                             break;
                         case 3:
                             break;
                         case 4:
                             break;
                         case 5:
+                            menucondition2 = false;
                             break;
                     }
                 }
-                while (true);
-                Console.ReadKey();
+                while (menucondition2);
                 break;
             case 2:
-                Console.Clear();
-                Console.ReadKey();
                 break;
             case 3:
-                Console.Clear();
-                listHabitación.MostrarInformacion();
-                Console.ReadKey();
+                Console.WriteLine("Habitaciones simples:");
+                listHabitacionSimple.MostrarInformacion();
+                Console.WriteLine("\nHabitaciones dobles:");
+                listHabitacionDoble.MostrarInformacion();
                 break;
             case 4:
-                Console.Clear();
-                Console.ReadKey();
                 break;
             case 5:
-                Console.Clear();
-                Console.ReadKey();
                 break;
             case 6:
                 menucondition = false;
